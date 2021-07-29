@@ -2,3 +2,10 @@
   apt: name={{item}}
   with_items:
     - htop
+    - r-base
+    
+- name: Install pycharm
+  command: snap install pycharm-community --classic
+ 
+- name: Install vscode
+  command: snap install vscode --classic
