@@ -6,7 +6,24 @@
   apt: 
       name: r-base
       state: present
-- name: Install pycharm
-  command: snap install pycharm-community --classic
+- name: Install spyder
+  apt:
+      name: spyder
+      state: present
+- name: Install sqlite3
+  apt:
+      name: sqlite3
+      state: present
+- name: Install docker
+  become: yes
+  become_method: sudo
+  block:
+  - name: Ensure built-in docker is removed
+    apt:
+      pkg:
+      - docker
+      - docker-engine
+      - docker.io
+      state: absent
 - name: Install vscode
-  command: snap install vscode --classic
+  command: snap install code --classic
