@@ -1,8 +1,11 @@
-- name: Install packages
-  apt: name={{item}}
-  with_items:
-    - htop
-    - r-base
+- name: Install htop
+  apt: 
+      name: htop
+      state: present
+- name: Install R
+  apt: 
+      name: r-base
+      state: present
 - name: Install pycharm
   command: snap install pycharm-community --classic
 - name: Install vscode
