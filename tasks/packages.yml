@@ -14,16 +14,5 @@
   apt:
       name: sqlite3
       state: present
-- name: Install docker
-  become: yes
-  become_method: sudo
-  block:
-  - name: Ensure built-in docker is removed
-    apt:
-      pkg:
-      - docker
-      - docker-engine
-      - docker.io
-      state: absent
 - name: Install vscode
   command: snap install code --classic
