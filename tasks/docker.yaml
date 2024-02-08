@@ -36,6 +36,13 @@
   pip:
     name: docker
 
+- name: Install docker-compose
+  apt:
+    name: docker-compose-plugin
+    state: latest
+    update_cache: true
+
+
 - name: Pull default Docker image
   community.docker.docker_image:
     name: "{{ default_container_image }}"

@@ -4,11 +4,24 @@
     - name: update repositories
       apt: update_cache=yes
       changed_when: False
+    - name: install hvac pip package
+      become: yes
+      become_method: sudo
+      pip:
+        name: hvac
+        state: present
   vars:
     container_count: 1
     default_container_name: docker
     default_container_image: ubuntu
     default_container_command: sleep 1
+    vault_url: http://127.0.0.1:8200
+    vault_token: s.8BvzyXZdKH2BmYUYbsHe29Vm
+    vault_secret: ansible/projects/test-project/database
+    database_arr: “{{ lookup('hashi_vault', 'secret={{ vault_secret }} token={{ vault_token }} url={{ vault_url }} validate_certs=False') }}”
+
+
   tasks:
     - include: tasks/packages.yml
     - include: tasks/docker.yaml
+    - include: tasks/vault.yml
