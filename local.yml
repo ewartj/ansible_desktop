@@ -15,8 +15,8 @@
     default_container_name: docker
     default_container_image: ubuntu
     default_container_command: sleep 1
-    vault_url: http://127.0.0.1:8200
-    vault_token: s.8BvzyXZdKH2BmYUYbsHe29Vm
+    vault_url: 
+    vault_token: 
     vault_secret: ansible/projects/test-project/database
     database_arr: “{{ lookup('hashi_vault', 'secret={{ vault_secret }} token={{ vault_token }} url={{ vault_url }} validate_certs=False') }}”
 
