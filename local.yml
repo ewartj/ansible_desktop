@@ -18,7 +18,10 @@
     vault_url: 
     vault_token: 
     vault_secret: ansible/projects/test-project/database
+    # second_vault_token: 
+    # second_vault_secret: ansible/projects/test-project/database
     database_arr: “{{ lookup('hashi_vault', 'secret={{ vault_secret }} token={{ vault_token }} url={{ vault_url }} validate_certs=False') }}”
+    # food_arr: “{{ lookup('hashi_vault', 'secret={{ vault_secret }} token={{ vault_token }} url={{ vault_url }} validate_certs=False') }}”
 
 
   tasks:
