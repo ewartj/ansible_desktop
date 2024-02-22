@@ -1,4 +1,3 @@
 - name: Echo Vars
   ansible.builtin.debug:
-    msg: "database array: {{database_arr.host}}"
-    # msg: "Database host: {{ database_arr.host }}, dbname: {{ database_arr.dbname }}, username: {{ database_arr.username }}, password: {{ database_arr.password }}"
+    msg: "database array: {{database_arr}}"
