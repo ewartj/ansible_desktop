@@ -10,17 +10,17 @@
       pip:
         name: hvac
         state: present
-  vars:
-    container_count: 1
-    default_container_name: docker
-    default_container_image: ubuntu
-    default_container_command: sleep 1
-    vault_url: 
-    vault_token: 
-    vault_secret: ansible/projects/test-project/database
-    database_arr: “{{ lookup('hashi_vault', 'secret={{ vault_secret }} token={{ vault_token }} url={{ vault_url }} validate_certs=False') }}”
+  # vars:
+  #   container_count: 1
+  #   default_container_name: docker
+  #   default_container_image: ubuntu
+  #   default_container_command: sleep 1
+  #   vault_url: 
+  #   vault_token: 
+  #   vault_secret: ansible/projects/test-project/database
+  #   database_arr: “{{ lookup('hashi_vault', 'secret={{ vault_secret }} token={{ vault_token }} url={{ vault_url }} validate_certs=False') }}”
 
   tasks:
     - include: tasks/packages.yml
     - include: tasks/docker.yaml
-    - include: tasks/vault.yml
+    # - include: tasks/vault.yml
