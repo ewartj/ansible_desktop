@@ -1,6 +1,5 @@
-- name: install installation process
-  include_tasks: packages.yaml
+- name: Install packages
+  import_tasks: packages.yml
 
-- name: include docker
-  include_tasks: docker.yaml
-  when: config_flavor == "docker"
+- name: Install Docker
+  import_tasks: docker.yaml
